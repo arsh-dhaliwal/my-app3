@@ -1,0 +1,98 @@
+/* Alerts and Alarms Styles */
+
+.alerts-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  max-width: 600px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  display: none; /* Hidden by default, shown when triggered */
+}
+
+.alerts-modal.show {
+  display: block; /* Show the modal when triggered */
+}
+
+.alerts-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.alerts-title {
+  font-size: 1.5em;
+  color: #333;
+}
+
+.alerts-close-btn {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-size: 1.2em;
+}
+
+.alerts-content {
+  margin-bottom: 20px;
+}
+
+.alerts-list {
+  list-style: none;
+  padding: 0;
+}
+
+.alert-item {
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.alert-item.green {
+  background-color: #e8f5e9; /* Green background for 'good' status */
+  color: #2e7d32; /* Dark green text color */
+}
+
+.alert-item.yellow {
+  background-color: #fffde7; /* Yellow background for 'attention' status */
+  color: #f9a825; /* Yellow text color */
+}
+
+.alert-item.red {
+  background-color: #ffebee; /* Red background for 'intervention' status */
+  color: #d32f2f; /* Red text color */
+}
+
+.alert-description {
+  flex-grow: 1;
+}
+
+.alert-action {
+  margin-left: 20px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .alerts-modal {
+    width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  .alerts-modal {
+    width: 95%;
+    padding: 15px;
+  }
+
+  .alerts-title {
+    font-size: 1.2em;
+  }
+}

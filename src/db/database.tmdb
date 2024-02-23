@@ -1,0 +1,80 @@
+The file `src/db/database.tmdb` is intended to be a SQLite database file and not a text or code file. SQLite database files are binary files and cannot be directly created or manipulated with code in the same way as text files. Instead, they are generated and manipulated using SQL commands through a SQLite engine or interface.
+
+To create and initialize a SQLite database file with the required tables and schema, you would typically use a script written in a language like Python, Node.js, or directly through an SQLite command-line tool. The script would contain SQL commands to create tables and define their schema.
+
+Since I cannot generate a binary SQLite database file directly, I will provide an example of what the SQL commands in a script (`src/utils/dbInitScript.ts`) to create and initialize the database might look like. You would then run this script using a SQLite library in Node.js to generate the `database.tmdb` file.
+
+```typescript
+import sqlite3 from 'sqlite3';
+
+const db = new sqlite3.Database('./src/db/database.tmdb', (err) => {
+  if (err) {
+    console.error(err.message);
+  } else {
+    console.log('Connected to the ThermWatch SQLite database.');
+  }
+});
+
+const initDb = () => {
+  db.serialize(() => {
+    db.run(`CREATE TABLE IF NOT EXISTS Company (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      name TEXT NOT NULL,
+      address TEXT NOT NULL,
+      city TEXT NOT NULL,
+      state_province TEXT NOT NULL,
+      country TEXT NOT NULL,
+      zip_postal_code TEXT NOT NULL,
+      phone_number TEXT NOT NULL,
+      email TEXT NOT NULL
+    )`);
+
+    db.run(`CREATE TABLE IF NOT EXISTS Plant (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      name TEXT NOT NULL,
+      address TEXT NOT NULL,
+      city TEXT NOT NULL,
+      state_province TEXT NOT NULL,
+      country TEXT NOT NULL,
+      zip_postal_code TEXT NOT NULL,
+      phone_number TEXT NOT NULL,
+      email TEXT NOT NULL,
+      company_id INTEGER,
+      FOREIGN KEY (company_id) REFERENCES Company (id)
+    )`);
+
+    db.run(`CREATE TABLE IF NOT EXISTS Asset (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      name TEXT NOT NULL,
+      plant_id INTEGER,
+      capacity REAL NOT NULL,
+      rating TEXT NOT NULL,
+      temperature_threshold REAL NOT NULL,
+      FOREIGN KEY (plant_id) REFERENCES Plant (id)
+    )`);
+
+    db.run(`CREATE TABLE IF NOT EXISTS Sensor (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      name TEXT NOT NULL,
+      sensor_family TEXT NOT NULL,
+      sensor_type TEXT NOT NULL,
+      sensor_variant TEXT NOT NULL,
+      asset_id INTEGER,
+      position INTEGER NOT NULL,
+      FOREIGN KEY (asset_id) REFERENCES Asset (id)
+    )`);
+  });
+};
+
+initDb();
+
+db.close((err) => {
+  if (err) {
+    console.error(err.message);
+  } else {
+    console.log('Close the database connection.');
+  }
+});
+```
+
+This script would be part of the initialization process of your application, and when executed, it would create the `database.tmdb` file with the necessary tables and schema as specified in your requirements.
