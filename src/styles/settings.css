@@ -1,0 +1,131 @@
+/* Settings Modal Styles */
+.settings-modal {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 20px;
+  position: relative;
+  z-index: 10;
+}
+
+.settings-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.settings-modal-title {
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.settings-modal-close-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.settings-modal-content {
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.settings-tab-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #eaeaea;
+}
+
+.settings-tab-list-item {
+  margin-right: 10px;
+  padding-bottom: 5px;
+  cursor: pointer;
+}
+
+.settings-tab-list-item.active {
+  border-bottom: 2px solid #007bff;
+  color: #007bff;
+}
+
+.settings-form {
+  display: none;
+}
+
+.settings-form.active {
+  display: block;
+}
+
+.settings-form-group {
+  margin-bottom: 15px;
+}
+
+.settings-form-label {
+  display: block;
+  margin-bottom: 5px;
+  color: #666;
+}
+
+.settings-form-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #eaeaea;
+  border-radius: 4px;
+}
+
+.settings-form-button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.settings-form-button:hover {
+  background-color: #0056b3;
+}
+
+/* Dark Mode Styles */
+.dark-mode .settings-modal {
+  background-color: #333;
+  color: #fff;
+}
+
+.dark-mode .settings-modal-close-btn {
+  color: #fff;
+}
+
+.dark-mode .settings-tab-list-item {
+  color: #fff;
+}
+
+.dark-mode .settings-tab-list-item.active {
+  border-bottom-color: #00d4ff;
+}
+
+.dark-mode .settings-form-label {
+  color: #ccc;
+}
+
+.dark-mode .settings-form-input {
+  background-color: #222;
+  color: #fff;
+  border-color: #444;
+}
+
+.dark-mode .settings-form-button {
+  background-color: #00d4ff;
+  border-color: #00d4ff;
+}
+
+.dark-mode .settings-form-button:hover {
+  background-color: #00a9cc;
+}

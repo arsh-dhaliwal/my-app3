@@ -1,0 +1,139 @@
+/* Dashboard Styles */
+
+/* General dashboard layout */
+.dashboard-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+/* Top bar styles */
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background-color: #007bff; /* Primary blue accent */
+  color: white;
+}
+
+.top-bar .logo {
+  display: flex;
+  align-items: center;
+}
+
+.top-bar .app-name {
+  margin-left: 0.5rem;
+  font-weight: bold;
+}
+
+.top-bar .selection-bar {
+  display: flex;
+  align-items: center;
+}
+
+.top-bar .customer-name {
+  font-size: 1.2rem;
+  margin: 0 1rem;
+}
+
+/* Temperature cards */
+.temperature-card {
+  background-color: #f8f9fa; /* Light background for cards */
+  border-radius: 0.25rem;
+  padding: 1rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  transition: background-color 0.3s ease;
+}
+
+.temperature-card.green {
+  border-left: 5px solid #28a745; /* Green status */
+}
+
+.temperature-card.yellow {
+  border-left: 5px solid #ffc107; /* Yellow status */
+}
+
+.temperature-card.red {
+  border-left: 5px solid #dc3545; /* Red status */
+}
+
+/* Chart container */
+.chart-container {
+  grid-column: span 2;
+  padding: 1rem;
+  background-color: #ffffff;
+  border-radius: 0.25rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+/* Polar trend plot */
+.polar-trend-plot-container {
+  padding: 1rem;
+  background-color: #ffffff;
+  border-radius: 0.25rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+/* Historic trend plot */
+.historic-trend-plot-container {
+  grid-column: span 3;
+  padding: 1rem;
+  background-color: #ffffff;
+  border-radius: 0.25rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+/* Polar trend plot for historical data */
+.polar-historic-plot-container {
+  grid-column: span 2;
+  padding: 1rem;
+  background-color: #ffffff;
+  border-radius: 0.25rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+/* Table for selecting historic data */
+.historic-data-selector {
+  padding: 1rem;
+  background-color: #ffffff;
+  border-radius: 0.25rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+/* Toggle buttons for theme and units */
+.toggle-buttons {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0.5rem;
+}
+
+/* Dark mode styles */
+.dark-mode {
+  background-color: #343a40; /* Dark background for dashboard */
+  color: #f8f9fa; /* Light text for readability */
+}
+
+.dark-mode .temperature-card {
+  background-color: #495057; /* Dark background for cards */
+}
+
+.dark-mode .top-bar {
+  background-color: #0062cc; /* Darker blue for top bar */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .dashboard-container {
+    grid-template-columns: 1fr;
+  }
+
+  .chart-container,
+  .polar-trend-plot-container,
+  .historic-trend-plot-container,
+  .polar-historic-plot-container {
+    grid-column: span 1;
+  }
+}
